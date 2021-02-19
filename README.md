@@ -1,5 +1,7 @@
 # Angular SportsStore
 
+[![angular-sportsstore-ci][ci-badge]][ci-workflow]
+
 Based on the application built in chapters 7-10 in the book 'Pro Angular 9' by Adam Freeman (Apress, 2020).
 
 SportsStore is an online product catalog that customers can browse by category and page, a shopping cart
@@ -33,3 +35,6 @@ Run `ng test` to execute the unit tests via Karma.
 [MIT License](./LICENSE)
 
 Copyright (c) 2021 Felipe Romero
+
+[ci-badge]: https://github.com/feliperomero3/angular-sportsstore/actions/workflows/angular-sportsstore-ci.yml/badge.svg
+[ci-workflow]: https://github.com/feliperomero3/angular-sportsstore/actions/workflows/angular-sportsstore-ci.yml
