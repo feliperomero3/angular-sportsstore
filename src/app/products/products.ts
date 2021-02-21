@@ -1,4 +1,4 @@
-import { Product } from "./product.model";
+import { Product } from './product.model';
 
 export const products: Product[] = [
   new Product(1, 'Product 1', 'Category 1', 'Product 1 (Category 1)', 100),

@@ -10,16 +10,16 @@ export class ProductService {
   private products: Product[] = products;
 
   getProducts(category: string = null): Observable<Product[]> {
-    return from([this.products.filter(p => category == null || p.category == category)]);
+    return from([this.products.filter(p => category == null || p.category === category)]);
   }
 
   getProduct(id: number): Observable<Product> {
-    return from([this.products.find(p => p.id == id)]);
+    return from([this.products.find(p => p.id === id)]);
   }
 
   getCategories(): Observable<string[]> {
     return from([this.products.map(p => p.category)
-      .filter((c, index, array) => array.indexOf(c) == index).sort()]);
+      .filter((c, index, array) => array.indexOf(c) === index).sort()]);
   }
 
 }
