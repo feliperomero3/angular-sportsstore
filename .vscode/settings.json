@@ -1,3 +1,5 @@
 {
-    "jshint.enable": false
+  "jshint.enable": false,
+  "tslint.jsEnable": false,
+  "tslint.configFile": "./tsconfig.app.json"
 }
