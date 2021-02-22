@@ -22,12 +22,20 @@ export class StoreComponent implements OnInit {
     this.getCategories();
   }
 
-  private getProducts(): void {
+  get paginatedProducts(): Product[] {
     const pageIndex = (this.selectedPage - 1) * this.productsPerPage;
+    console.log('productsPerPage: ', this.productsPerPage);
+    console.log('pageIndex (start): ', pageIndex);
+    const sliceEnd = pageIndex + this.productsPerPage;
+    console.log('end: ', sliceEnd);
+    return this.products.slice(pageIndex, sliceEnd);
+  }
+
+  private getProducts(): void {
     this.productService.getProducts(this.selectedCategory).subscribe({
       next: data => {
         this.productsCount = data.length;
-        this.products = data.slice(pageIndex, pageIndex + this.productsPerPage);
+        this.products = data;
       }
     });
   }
@@ -43,11 +51,12 @@ export class StoreComponent implements OnInit {
 
   changePage(page: number) {
     this.selectedPage = page;
-    this.getProducts();
   }
 
-  changePageSize(size: number) {
-    this.productsPerPage = size;
+  changePageSize(size: string) {
+    this.productsPerPage = +size;
+    console.log('productsPerPage: ', this.productsPerPage);
+
     this.changePage(1);
   }
 
