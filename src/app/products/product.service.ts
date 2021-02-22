@@ -10,7 +10,7 @@ export class ProductService {
   private products: Product[] = products;
 
   getProducts(category: string = null): Observable<Product[]> {
-    return from([this.products.filter(p => category == null || p.category === category)]);
+    return from([this.products.filter(p => category == null || category === '' || p.category === category)]);
   }
 
   getProduct(id: number): Observable<Product> {

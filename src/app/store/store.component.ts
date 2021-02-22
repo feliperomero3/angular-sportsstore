@@ -10,6 +10,7 @@ import { ProductService } from '../products/product.service';
 export class StoreComponent implements OnInit {
   products: Product[];
   categories: string[];
+  selectedCategory = '';
 
   constructor(private productService: ProductService) { }
 
@@ -19,13 +20,18 @@ export class StoreComponent implements OnInit {
   }
 
   private getProducts(): void {
-    this.productService.getProducts().subscribe({
+    this.productService.getProducts(this.selectedCategory).subscribe({
       next: data => this.products = data
     });
   }
 
   private getCategories(): void {
     this.productService.getCategories().subscribe(data => this.categories = data);
+  }
+
+  changeCategory(category: string = ''): void {
+    this.selectedCategory = category;
+    this.getProducts();
   }
 
 }
