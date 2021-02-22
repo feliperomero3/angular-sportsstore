@@ -11,6 +11,9 @@ export class StoreComponent implements OnInit {
   products: Product[];
   categories: string[];
   selectedCategory = '';
+  productsPerPage = 4;
+  selectedPage = 1;
+  productsCount = 0;
 
   constructor(private productService: ProductService) { }
 
@@ -20,8 +23,12 @@ export class StoreComponent implements OnInit {
   }
 
   private getProducts(): void {
+    const pageIndex = (this.selectedPage - 1) * this.productsPerPage;
     this.productService.getProducts(this.selectedCategory).subscribe({
-      next: data => this.products = data
+      next: data => {
+        this.productsCount = data.length;
+        this.products = data.slice(pageIndex, pageIndex + this.productsPerPage);
+      }
     });
   }
 
@@ -32,6 +39,24 @@ export class StoreComponent implements OnInit {
   changeCategory(category: string = ''): void {
     this.selectedCategory = category;
     this.getProducts();
+  }
+
+  changePage(page: number) {
+    this.selectedPage = page;
+    this.getProducts();
+  }
+
+  changePageSize(size: number) {
+    this.productsPerPage = size;
+    this.changePage(1);
+  }
+
+  get pageNumbers(): number[] {
+    console.log(this.products.length);
+    console.log(this.productsCount);
+
+    return Array(Math.ceil(this.productsCount / this.productsPerPage))
+      .fill(0).map((x, i) => i + 1);
   }
 
 }
