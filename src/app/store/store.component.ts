@@ -13,7 +13,6 @@ export class StoreComponent implements OnInit {
   selectedCategory = '';
   productsPerPage = 4;
   selectedPage = 1;
-  productsCount = 0;
 
   constructor(private productService: ProductService) { }
 
@@ -24,17 +23,13 @@ export class StoreComponent implements OnInit {
 
   get paginatedProducts(): Product[] {
     const pageIndex = (this.selectedPage - 1) * this.productsPerPage;
-    console.log('productsPerPage: ', this.productsPerPage);
-    console.log('pageIndex (start): ', pageIndex);
     const sliceEnd = pageIndex + this.productsPerPage;
-    console.log('end: ', sliceEnd);
     return this.products.slice(pageIndex, sliceEnd);
   }
 
   private getProducts(): void {
     this.productService.getProducts(this.selectedCategory).subscribe({
       next: data => {
-        this.productsCount = data.length;
         this.products = data;
       }
     });
@@ -55,17 +50,11 @@ export class StoreComponent implements OnInit {
 
   changePageSize(size: string) {
     this.productsPerPage = +size;
-    console.log('productsPerPage: ', this.productsPerPage);
-
     this.changePage(1);
   }
 
-  get pageNumbers(): number[] {
-    console.log(this.products.length);
-    console.log(this.productsCount);
-
-    return Array(Math.ceil(this.productsCount / this.productsPerPage))
-      .fill(0).map((x, i) => i + 1);
+  get pageCount(): number {
+    return Math.ceil(this.products.length / this.productsPerPage);
   }
 
 }

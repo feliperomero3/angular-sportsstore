@@ -4,9 +4,10 @@ import { StoreComponent } from './store.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ProductModule } from '../products/product.module';
+import { CounterDirective } from './counter.directive';
 
 @NgModule({
-  declarations: [StoreComponent],
+  declarations: [StoreComponent, CounterDirective],
   imports: [
     CommonModule,
     BrowserModule,
