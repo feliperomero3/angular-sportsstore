@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart/cart.service';
 import { Product } from '../products/product.model';
 import { ProductService } from '../products/product.service';
 
@@ -14,11 +15,15 @@ export class StoreComponent implements OnInit {
   productsPerPage = 4;
   selectedPage = 1;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getProducts();
     this.getCategories();
+  }
+
+  get pageCount(): number {
+    return Math.ceil(this.products.length / this.productsPerPage);
   }
 
   get paginatedProducts(): Product[] {
@@ -44,17 +49,17 @@ export class StoreComponent implements OnInit {
     this.getProducts();
   }
 
-  changePage(page: number) {
+  changePage(page: number): void {
     this.selectedPage = page;
   }
 
-  changePageSize(size: string) {
+  changePageSize(size: string): void {
     this.productsPerPage = +size;
     this.changePage(1);
   }
 
-  get pageCount(): number {
-    return Math.ceil(this.products.length / this.productsPerPage);
+  addProductToCart(product: Product): void {
+    this.cartService.addLine(product);
   }
 
 }

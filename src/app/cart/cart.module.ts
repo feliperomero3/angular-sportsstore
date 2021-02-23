@@ -6,6 +6,9 @@ import { CartSummaryComponent } from './cart-summary.component';
   declarations: [CartSummaryComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    CartSummaryComponent
   ]
 })
 export class CartModule { }

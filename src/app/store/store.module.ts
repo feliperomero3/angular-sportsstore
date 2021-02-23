@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ProductModule } from '../products/product.module';
 import { CounterDirective } from './counter.directive';
+import { CartModule } from '../cart/cart.module';
 
 @NgModule({
   declarations: [StoreComponent, CounterDirective],
@@ -12,7 +13,8 @@ import { CounterDirective } from './counter.directive';
     CommonModule,
     BrowserModule,
     FormsModule,
-    ProductModule
+    ProductModule,
+    CartModule
   ],
   exports: [
     StoreComponent
