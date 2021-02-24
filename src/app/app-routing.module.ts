@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CartDetailComponent } from './cart/cart-detail.component';
+import { StoreGuard } from './store.guard';
 import { CheckoutComponent } from './store/checkout.component';
 import { StoreComponent } from './store/store.component';
 
 const routes: Routes = [
-  { path: 'store', component: StoreComponent },
-  { path: 'cart', component: CartDetailComponent },
-  { path: 'checkout', component: CheckoutComponent },
+  { path: 'store', component: StoreComponent, canActivate: [StoreGuard] },
+  { path: 'cart', component: CartDetailComponent, canActivate: [StoreGuard] },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [StoreGuard] },
   { path: '**', redirectTo: '/store' }
 ];
 
