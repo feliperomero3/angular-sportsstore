@@ -6,9 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { ProductModule } from '../products/product.module';
 import { CounterDirective } from './counter.directive';
 import { CartModule } from '../cart/cart.module';
+import { CheckoutComponent } from './checkout.component';
 
 @NgModule({
-  declarations: [StoreComponent, CounterDirective],
+  declarations: [StoreComponent, CounterDirective, CheckoutComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -17,7 +18,8 @@ import { CartModule } from '../cart/cart.module';
     CartModule
   ],
   exports: [
-    StoreComponent
+    StoreComponent,
+    CheckoutComponent
   ]
 })
 export class StoreModule { }
