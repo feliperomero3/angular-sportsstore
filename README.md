@@ -34,6 +34,10 @@ Run `ng test` to execute the unit tests via Karma.
 
 Run `ng e2e` to execute the e2e tests via Protractor.
 
+## Screen captures
+
+![angular-sportsstore-home](/.github\assets\angular-sportsstore.jpeg)
+
 ## License
 
 [MIT License](./LICENSE)
