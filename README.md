@@ -15,7 +15,7 @@ This project was generated with Angular CLI version 9.0.3.
 
 ## Prerequisites
 
-- Nodejs 12.x
+- Node.js 12.x
 - Angular CLI 9.x
 
 ## Build
