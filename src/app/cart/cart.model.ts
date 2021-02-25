@@ -4,7 +4,7 @@ import { Product } from '../products/product.model';
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class Cart {
   public lines: CartLine[] = [];
   public itemCount = 0;
   public cartPrice = 0;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CartService } from '../cart/cart.service';
+import { Cart } from '../cart/cart.model';
 import { Product } from '../products/product.model';
 import { ProductService } from '../products/product.service';
 
@@ -18,7 +18,7 @@ export class StoreComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService,
+    private cartService: Cart,
     private router: Router) { }
 
   ngOnInit(): void {
