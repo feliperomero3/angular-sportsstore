@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CartDetailComponent } from './cart/cart-detail.component';
-import { StoreGuard } from './store.guard';
+import { StoreGuard } from './store/store.guard';
 import { CheckoutComponent } from './store/checkout.component';
 import { StoreComponent } from './store/store.component';
 
