@@ -38,7 +38,7 @@ Run `ng e2e` to execute the e2e tests via Protractor.
 
 ## Screen captures
 
-![angular-sportsstore-home](.github/assets/angular-sportsstore.jpeg)
+![angular-sportsstore-home](.github/assets/angular-sportsstore.png)
 
 ## License
 
