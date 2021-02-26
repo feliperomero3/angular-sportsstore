@@ -13,6 +13,8 @@ simplified such as the data store, and omitted others entirely, such as payment 
 
 This project was generated with Angular CLI version 9.0.3.
 
+**DEMO**: <https://feliperomero3.github.io/angular-sportsstore/>
+
 ## Prerequisites
 
 - Node.js 12.x
