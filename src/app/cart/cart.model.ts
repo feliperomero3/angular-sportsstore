@@ -43,7 +43,9 @@ export class Cart {
   }
 
   clear(): void {
-    throw new Error('Method not implemented.');
+    this.lines = [];
+    this.itemCount = 0;
+    this.cartPrice = 0;
   }
 }
 
