@@ -41,6 +41,10 @@ export class Cart {
       this.cartPrice += (l.quantity * l.product.price);
     });
   }
+
+  clear(): void {
+    throw new Error('Method not implemented.');
+  }
 }
 
 export class CartLine {
