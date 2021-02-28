@@ -12,8 +12,8 @@ import { OrderService } from '../orders/order.service';
   `]
 })
 export class CheckoutComponent implements OnInit {
-  orderSent = false;
-  orderSubmitted = false;
+  isOrderSent = false;
+  isOrderSubmitted = false;
 
   constructor(public order: Order, public orderService: OrderService) { }
 
@@ -21,13 +21,13 @@ export class CheckoutComponent implements OnInit {
   }
 
   submitOrder(form: NgForm): void {
-    this.orderSubmitted = true;
+    this.isOrderSubmitted = true;
     if (form.valid) {
       this.orderService.saveOrder(this.order).subscribe({
         next: () => {
           this.order.clear();
-          this.orderSent = true;
-          this.orderSubmitted = false;
+          this.isOrderSent = true;
+          this.isOrderSubmitted = false;
         },
         error: () => console.error('An error ocurred during order submission')
       });

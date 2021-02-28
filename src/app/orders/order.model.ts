@@ -12,7 +12,7 @@ export class Order {
   state: string;
   zip: string;
   country: string;
-  shipped = false;
+  isShipped = false;
 
   constructor(public cart: Cart) { }
 
@@ -20,7 +20,7 @@ export class Order {
     this.id = null;
     this.name = this.address = this.city = null;
     this.state = this.zip = this.country = null;
-    this.shipped = false;
+    this.isShipped = false;
     this.cart.clear();
   }
 }
