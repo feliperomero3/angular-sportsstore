@@ -1,7 +1,0 @@
-{
-  "jshint.enable": false,
-  "tslint.jsEnable": false,
-  "editor.rulers": [
-    120
-  ]
-}
