@@ -16,22 +16,22 @@ module.exports = () => ({
     },
     {
       id: 3,
-      name: "Soccer Ball",
-      category: "Soccer",
+      name: "Football Ball",
+      category: "Football",
       description: "FIFA-approved size and weight",
       price: 19.50
     },
     {
       id: 4,
       name: "Corner Flags",
-      category: "Soccer",
+      category: "Football",
       description: "Give your playing field a professional touch",
       price: 34.95
     },
     {
       id: 5,
       name: "Stadium",
-      category: "Soccer",
+      category: "Football",
       description: "Flat-packed 35,000-seat stadium",
       price: 79500
     },

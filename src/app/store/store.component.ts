@@ -10,15 +10,15 @@ import { ProductService } from '../products/product.service';
   styles: []
 })
 export class StoreComponent implements OnInit {
-  products: Product[];
-  categories: string[];
+  products: Product[] = [];
+  categories: string[] = [];
   selectedCategory = '';
   productsPerPage = 4;
   selectedPage = 1;
 
   constructor(
     private productService: ProductService,
-    private cartService: Cart,
+    private cart: Cart,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -63,7 +63,7 @@ export class StoreComponent implements OnInit {
   }
 
   addProductToCart(product: Product): void {
-    this.cartService.addLine(product);
+    this.cart.addLine(product);
     this.router.navigateByUrl('/cart');
   }
 

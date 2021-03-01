@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
+import { of } from 'rxjs';
+import { Cart } from '../cart/cart.model';
+import { ProductService } from '../products/product.service';
 import { CounterDirective } from './counter.directive';
 import { StoreComponent } from './store.component';
 
 describe('StoreComponent', () => {
   let component: StoreComponent;
   let fixture: ComponentFixture<StoreComponent>;
+  let mockProductService: any;
+  let mockCart: any;
 
   const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
@@ -14,6 +19,9 @@ describe('StoreComponent', () => {
   class CartSummaryStubComponent { }
 
   beforeEach(async(() => {
+    mockProductService = jasmine.createSpyObj('ProductService', ['getProducts', 'getCategories']);
+    mockCart = jasmine.createSpyObj('Cart', ['addLine']);
+
     TestBed.configureTestingModule({
       declarations: [
         StoreComponent,
@@ -21,7 +29,9 @@ describe('StoreComponent', () => {
         CartSummaryStubComponent
       ],
       providers: [
-        { provide: Router, useValue: routerSpy }
+        { provide: Router, useValue: routerSpy },
+        { provide: ProductService, useValue: mockProductService },
+        { provide: Cart, useValue: mockCart }
       ]
     }).compileComponents();
   }));
@@ -29,6 +39,8 @@ describe('StoreComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StoreComponent);
     component = fixture.componentInstance;
+    mockProductService.getProducts.and.returnValue(of([]));
+    mockProductService.getCategories.and.returnValue(of([]));
     fixture.detectChanges();
   });
 

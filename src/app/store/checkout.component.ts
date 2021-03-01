@@ -29,7 +29,7 @@ export class CheckoutComponent implements OnInit {
           this.isOrderSent = true;
           this.isOrderSubmitted = false;
         },
-        error: () => console.error('An error ocurred during order submission')
+        error: (err) => console.error('An error ocurred during order submission: ' + err)
       });
     }
   }
