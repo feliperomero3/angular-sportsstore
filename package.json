@@ -8,7 +8,8 @@
     "test": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "json": "json-server data.js -p 3500 -m authMiddleware.js"
+    "json": "json-server data.js -p 3500 -m authMiddleware.js",
+    "e2e-ci": "start-server-and-test json http://localhost:3500 e2e"
   },
   "private": true,
   "dependencies": {

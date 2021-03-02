@@ -25,9 +25,7 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - run: npm run test
-      - name: Prepare setup for e2e testing
-        run: npm run json
-      - run: npm run e2e
+      - run: npm run e2e-ci
       - name: Publish build artifacts
         uses: actions/upload-artifact@v2
         with:
