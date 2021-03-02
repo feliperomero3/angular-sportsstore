@@ -5,11 +5,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
     "lint": "ng lint",
+    "test": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
+    "e2e-ci": "start-server-and-test json http://localhost:3500 e2e",
     "e2e": "ng e2e",
-    "json": "json-server data.js -p 3500 -m authMiddleware.js",
-    "e2e-ci": "start-server-and-test json http://localhost:3500 e2e"
+    "json": "json-server data.js -p 3500 -m authMiddleware.js"
   },
   "private": true,
   "dependencies": {
