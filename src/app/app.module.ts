@@ -7,6 +7,7 @@ import { StoreModule } from './store/store.module';
 import { ProductModule } from './products/product.module';
 import { CartModule } from './cart/cart.module';
 import { OrdersModule } from './orders/orders.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { OrdersModule } from './orders/orders.module';
     StoreModule,
     CartModule,
     OrdersModule,
-    ProductModule
+    ProductModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
