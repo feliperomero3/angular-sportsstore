@@ -20,21 +20,25 @@ This project was generated with Angular CLI version 9.0.3.
 - Node.js 12.x
 - Angular CLI 9.x
 
-## Build
+## Getting started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone the project.
+2. Open a terminal in the root directory and execute `npm run json` to start the local json-server.
+3. Open a second terminal and execute `npm run build` and then `npm run start` to build and start the application respectively.
+4. Navigate to `http://localhost:4200/`.
 
-## Run
+This project has npm scripts that help you run it locally.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+- `npm run start` starts the app locally on default port (4200).
+- `npm run test` runs the unit tests.
+- `npm run e2e` runs end to end tests (you need to run `npm run json` first).
+- `npm run e2e-ci` runs the end to end tests on the CI server with json-server.
 
-## Running unit tests
+## Tests
 
-Run `ng test` to execute the unit tests via Karma.
+Tests are done using Jasmine and Karma; Protractor is used for e2e tests.
 
-## Running e2e tests
-
-Run `ng e2e` to execute the e2e tests via Protractor.
+To run tests use the npm script `npm run test`.
 
 ## Screen captures
 
