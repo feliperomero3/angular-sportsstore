@@ -2,16 +2,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from './../../environments/environment';
 import { Product } from './product.model';
 
-const PROTOCOL = 'http';
-const PORT = 3500;
+const PROTOCOL = environment.protocol;
+const PORT = environment.port;
+const HOST = environment.host;
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+  private baseUrl = `${PROTOCOL}://${HOST}:${PORT}/`;
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

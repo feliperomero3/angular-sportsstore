@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  protocol: 'http',
+  host: location.hostname,
+  port: 3500
 };
