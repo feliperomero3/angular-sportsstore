@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminComponent } from './admin.component';
+import { AuthComponent } from './auth.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'auth', component: AuthComponent },
+  { path: 'main', component: AdminComponent },
+  { path: '**', redirectTo: 'auth' }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
