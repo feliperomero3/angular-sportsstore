@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'store', component: StoreComponent, canActivate: [StoreGuard] },
   { path: 'cart', component: CartDetailComponent, canActivate: [StoreGuard] },
   { path: 'checkout', component: CheckoutComponent, canActivate: [StoreGuard] },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule), canActivate: [StoreGuard] },
   { path: '**', redirectTo: '/store' }
 ];
 
