@@ -27,18 +27,19 @@ This project was generated with Angular CLI version 9.0.3.
 3. Open a second terminal and execute `npm run build` and then `npm run start` to build and start the application respectively.
 4. Navigate to `http://localhost:4200/`.
 
-This project has npm scripts that help you run it locally.
+This project has following npm scripts:
 
 - `npm run start` starts the app locally on default port (4200).
 - `npm run test` runs the unit tests.
 - `npm run e2e` runs end to end tests (you need to run `npm run json` first).
-- `npm run e2e-ci` runs the end to end tests on the CI server with json-server.
+- `npm run e2e-ci` runs `start-server-and-test` to start an instance of `json-server` and then runs the end to end tests (this script is used on the CI server).
 
 ## Tests
 
 Tests are done using Jasmine and Karma; Protractor is used for e2e tests.
 
 To run tests use the npm script `npm run test`.
+To run end to end tests use `npm run e2e` (you need to run `npm run json` first).
 
 ## Screen captures
 
