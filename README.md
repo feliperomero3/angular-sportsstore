@@ -27,7 +27,7 @@ This project was generated with Angular CLI version 9.0.3.
 3. Open a second terminal and execute `npm run build` and then `npm run start` to build and start the application respectively.
 4. Navigate to `http://localhost:4200/`.
 
-This project has following npm scripts:
+This project has the following npm scripts:
 
 - `npm run start` starts the app locally on default port (4200).
 - `npm run test` runs the unit tests.
