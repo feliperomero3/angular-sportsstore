@@ -13,7 +13,10 @@ const HOST = environment.host;
 })
 export class AuthService {
   private baseUrl = `${PROTOCOL}://${HOST}:${PORT}/`;
-  authToken: { success: boolean, token: string } = null;
+  private authToken: { success: boolean, token: string } = {
+    success: false,
+    token: ''
+  };
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -23,6 +26,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   get IsAuthenticated(): boolean {
+    console.log('IsAuthenticated(): ' + this.authToken.success);
     return this.authToken.success;
   }
 
@@ -30,7 +34,7 @@ export class AuthService {
     const body = { name: user, password: pass };
     return this.http.post<{ success: boolean, token: string }>(this.baseUrl + 'login', body, this.httpOptions)
       .pipe(map(response => {
-        this.authToken.token = response.success ? response.token : null;
+        this.authToken = response;
         return response.success;
       }));
   }
