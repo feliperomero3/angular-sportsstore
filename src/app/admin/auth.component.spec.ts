@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,7 +13,7 @@ describe('AuthComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AuthComponent],
-      imports: [FormsModule],
+      imports: [FormsModule, HttpClientTestingModule],
       providers: [{ provide: Router, useValue: routerSpy }]
     }).compileComponents();
   }));
