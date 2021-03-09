@@ -25,6 +25,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  get Token(): string {
+    console.log('Token(): ' + this.authToken.token);
+    return this.authToken.token;
+  }
+
   get IsAuthenticated(): boolean {
     console.log('IsAuthenticated(): ' + this.authToken.success);
     return this.authToken.success;
