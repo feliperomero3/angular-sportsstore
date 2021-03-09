@@ -24,9 +24,14 @@ This project was generated with Angular CLI version 9.0.3.
 
 1. Clone the project.
 2. Open a terminal in the root directory and execute `npm run json` to start the local json-server.
-3. Open a second terminal and run `npm install` or `npm i`.
-4. After dependencies are installed execute `npm run build` and then `npm run start` to build and start the application respectively.
-5. Navigate to `http://localhost:4200/`.
+3. Open a second terminal and run `npm install` or `npm i`
+4. (Optional) Setup local certificate.
+    1. Switch to 'cert' directory.
+    2. Run `./generate.sh`
+        - If you're on windows, use Git Bash to run the previous command.
+    3. Verify two files were generated: `server.crt` and `server.key`
+5. After dependencies are installed execute `npm run start` to start the application.
+6. Navigate to `https://localhost:4200/`.
 
 This project has the following npm scripts:
 
