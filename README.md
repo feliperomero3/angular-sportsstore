@@ -79,4 +79,4 @@ Follow the next steps:
 6. You'll get a prompt asking for confirmation, click “Yes”.
 7. Click on "Finish" to exit the wizard.
 
-Restart the application.
+Restart the Angular Development Server.
