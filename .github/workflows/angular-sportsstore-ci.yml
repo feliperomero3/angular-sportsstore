@@ -27,7 +27,6 @@ jobs:
       - run: npm run test
       - run: sudo apt-get update && sudo apt-get install google-chrome-stable
       - run: cd cert && ./generate.sh
-      - run: sudo chmod g+r cert/server.key
       - run: npm run e2e-ci
       - name: Publish build artifacts
         uses: actions/upload-artifact@v2
