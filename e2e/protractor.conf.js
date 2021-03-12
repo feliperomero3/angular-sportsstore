@@ -15,7 +15,7 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      args: ["--headless"]
+      args: ["--headless", "--allow-insecure-localhost"]
     }
   },
   directConnect: true,
