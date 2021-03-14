@@ -14,30 +14,35 @@ const HOST = environment.host;
 })
 export class OrderService {
   private baseUrl = `${PROTOCOL}://${HOST}:${PORT}/`;
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer<${this.auth.Token}>`
-    })
-  };
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
+  private getHttpOptions(): { headers: HttpHeaders } {
+    return {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        Authorization: `Bearer<${this.auth.Token}>`,
+        'Content-Type': 'application/json',
+        'Access-Control-Max-Age': '600'
+      })
+    };
+  }
+
   getOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(this.baseUrl + 'orders', this.httpOptions);
+    return this.http.get<Order[]>(this.baseUrl + 'orders', this.getHttpOptions());
   }
 
   saveOrder(order: Order): Observable<Order> {
     console.log(JSON.stringify(order));
-    return this.http.post<Order>(this.baseUrl + 'orders', order, this.httpOptions);
+    return this.http.post<Order>(this.baseUrl + 'orders', order, this.getHttpOptions());
   }
 
   deleteOrder(id: number): Observable<Order> {
-    return this.http.delete<Order>(this.baseUrl + `orders/${id}`, this.httpOptions);
+    return this.http.delete<Order>(this.baseUrl + `orders/${id}`, this.getHttpOptions());
   }
 
   updateOrder(order: Order): Observable<Order> {
-    return this.http.put<Order>(this.baseUrl + `orders/${order.id}`, order, this.httpOptions);
+    return this.http.put<Order>(this.baseUrl + `orders/${order.id}`, order, this.getHttpOptions());
   }
 
 }
