@@ -45,7 +45,7 @@ export class StoreComponent implements OnInit {
   }
 
   private getCategories(): void {
-    this.productService.getCategories().subscribe(data => this.categories = data);
+    this.productService.getCategories().subscribe({ next: data => this.categories = data });
   }
 
   changeCategory(category: string = ''): void {
