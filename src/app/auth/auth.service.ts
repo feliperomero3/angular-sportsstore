@@ -19,7 +19,8 @@ export class AuthService {
   };
   private httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Access-Control-Max-Age': '600'
     })
   };
 
@@ -39,6 +40,7 @@ export class AuthService {
     const body = { name: user, password: pass };
     return this.http.post<{ success: boolean, token: string }>(this.baseUrl + 'login', body, this.httpOptions)
       .pipe(map(response => {
+        console.log(JSON.stringify(response));
         this.authToken = response;
         return response.success;
       }));
