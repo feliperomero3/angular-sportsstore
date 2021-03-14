@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../products/product.model';
 import { ProductService } from '../products/product.service';
 
@@ -6,21 +6,29 @@ import { ProductService } from '../products/product.service';
   selector: 'app-product-table',
   templateUrl: 'product-table.component.html'
 })
-export class ProductTableComponent {
-  private products: Product[] = [];
+export class ProductTableComponent implements OnInit {
+  products: Product[] = [];
 
   constructor(private productService: ProductService) { }
 
-  getProducts(): Product[] {
+  ngOnInit(): void {
+    this.getProducts();
+  }
+
+  getProducts(): void {
     this.productService.getProducts().subscribe({
-      next: data => this.products = data
+      next: data => {
+        this.products = data;
+        console.log('Got ' + this.products.length + ' Products');
+      },
+      error: err => console.error('An error ocurred while trying to get the Products: ' + err)
     });
-    return this.products;
   }
 
   deleteProduct(id: number): void {
     this.productService.deleteProduct(id).subscribe({
-      next: (product) => console.error('Deleted Product: ' + product)
+      next: (product) => console.log('Deleted Product: ' + product),
+      error: err => console.error('An error ocurred while trying to delete the Product: ' + err)
     });
   }
 }
