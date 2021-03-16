@@ -25,7 +25,10 @@ export class OrderTableComponent implements OnInit {
   markShipped(order: Order): void {
     order.isShipped = true;
     this.orderService.updateOrder(order).subscribe({
-      next: (updatedOrder) => console.log(`Order ${order.id} updated successfully: `, JSON.stringify(updatedOrder)),
+      next: (updatedOrder) => {
+        this.orders = this.orders.filter(o => this.includeShipped || !o.isShipped);
+        console.log(`Order ${order.id} updated successfully: `, JSON.stringify(updatedOrder));
+      },
       error: (err) => console.error('An error ocurred while updating the order: ' + err)
     });
   }
