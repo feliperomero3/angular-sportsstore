@@ -35,7 +35,10 @@ export class OrderTableComponent implements OnInit {
 
   deleteOrder(id: number): void {
     this.orderService.deleteOrder(id).subscribe({
-      next: (deletedOrder) => console.log(`Order ${id} deleted successfully: `, JSON.stringify(deletedOrder)),
+      next: (deletedOrder) => {
+        this.orders = this.orders.filter(o => o.id !== id);
+        console.log(`Order ${id} deleted successfully: `, JSON.stringify(deletedOrder));
+      },
       error: (err) => console.error('An error ocurred while deleting the order: ' + err)
     });
   }
