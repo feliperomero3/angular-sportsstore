@@ -27,7 +27,10 @@ export class ProductTableComponent implements OnInit {
 
   deleteProduct(id: number): void {
     this.productService.deleteProduct(id).subscribe({
-      next: (product) => console.log('Deleted Product: ' + product),
+      next: (product) => {
+        this.products = this.products.filter((p) => p.id !== id);
+        console.log('Deleted Product: ' + product);
+      },
       error: err => console.error('An error ocurred while trying to delete the Product: ' + err)
     });
   }
