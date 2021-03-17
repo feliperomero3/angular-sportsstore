@@ -47,6 +47,7 @@ export class AuthService {
   }
 
   clear(): void {
-    this.authToken = null;
+    this.authToken.success = false;
+    this.authToken.token = '';
   }
 }
