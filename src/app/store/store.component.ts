@@ -15,6 +15,7 @@ export class StoreComponent implements OnInit {
   selectedCategory = '';
   productsPerPage = 4;
   selectedPage = 1;
+  isLoading = false;
 
   constructor(
     private productService: ProductService,
@@ -22,6 +23,7 @@ export class StoreComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.getProducts();
     this.getCategories();
   }
@@ -38,9 +40,8 @@ export class StoreComponent implements OnInit {
 
   private getProducts(): void {
     this.productService.getProducts(this.selectedCategory).subscribe({
-      next: data => {
-        this.products = data;
-      }
+      next: data => this.products = data,
+      complete: () => this.isLoading = false
     });
   }
 

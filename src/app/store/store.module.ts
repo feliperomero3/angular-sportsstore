@@ -8,6 +8,7 @@ import { CartModule } from '../cart/cart.module';
 import { StoreComponent } from './store.component';
 import { CounterDirective } from './counter.directive';
 import { CheckoutComponent } from './checkout.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [StoreComponent, CounterDirective, CheckoutComponent],
@@ -17,7 +18,8 @@ import { CheckoutComponent } from './checkout.component';
     FormsModule,
     RouterModule,
     ProductModule,
-    CartModule
+    CartModule,
+    SharedModule
   ],
   exports: [
     StoreComponent,

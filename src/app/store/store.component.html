@@ -17,6 +17,7 @@
       <button class="btn btn-block btn-danger mt-5" routerLink="/admin">Admin</button>
     </div>
     <div class="col-9 p-2">
+      <app-spinner [isVisible]="isLoading"></app-spinner>
       <div *ngFor="let product of paginatedProducts" class="card m-1 p-1 bg-light">
         <h4>
           {{product.name}}

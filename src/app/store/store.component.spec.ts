@@ -18,6 +18,9 @@ describe('StoreComponent', () => {
   @Component({ selector: 'app-cart-summary', template: '' })
   class CartSummaryStubComponent { }
 
+  @Component({ selector: 'app-spinner', template: '' })
+  class SpinnerStubComponent { }
+
   beforeEach(async(() => {
     mockProductService = jasmine.createSpyObj('ProductService', ['getProducts', 'getCategories']);
     mockCart = jasmine.createSpyObj('Cart', ['addLine']);
@@ -26,7 +29,8 @@ describe('StoreComponent', () => {
       declarations: [
         StoreComponent,
         CounterDirective,
-        CartSummaryStubComponent
+        CartSummaryStubComponent,
+        SpinnerStubComponent
       ],
       providers: [
         { provide: Router, useValue: routerSpy },
