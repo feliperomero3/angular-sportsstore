@@ -1,13 +1,12 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Sports Store",
+    "title": "SportsStore",
     "version": "1.0",
     "description": "Based on the application built in chapters 7-10 in the book 'Pro Angular 9' by Adam Freeman (Apress, 2020).",
     "license": {
       "name": "MIT License",
-      "url": "https://opensource.org/licenses/MIT",
-      "x-last-modified": 1615755321161
+      "url": "https://opensource.org/licenses/MIT"
     }
   },
   "servers": [
@@ -27,8 +26,7 @@
           "default": "3500",
           "description": "Port"
         }
-      },
-      "x-last-modified": 1615761245538
+      }
     }
   ],
   "paths": {
@@ -36,6 +34,8 @@
       "summary": "Products",
       "description": "Products operations",
       "get": {
+        "operationId": "GetProduct",
+        "summary": "Get products",
         "tags": [],
         "parameters": [
           {
@@ -45,7 +45,6 @@
             "in": "path",
             "required": true,
             "deprecated": false,
-            "x-last-modified": 1615766013475,
             "description": "Product's unique identifier",
             "name": "id"
           }
@@ -57,22 +56,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/Product"
                 },
-                "example": "",
-                "encoding": ""
+                "example": ""
               }
             },
             "$ref": "#/components/schemas/Product",
             "description": "",
-            "type": "",
-            "x-last-modified": 1615765850011
+            "type": ""
           }
-        },
-        "operationId": "GetProduct",
-        "summary": "Get a product"
+        }
       },
       "post": {
         "requestBody": {
-          "description": "The product to be created.",
+          "description": "The product to be created",
           "content": {
             "application/json": {
               "schema": {
@@ -93,18 +88,16 @@
                 }
               }
             },
-            "description": "The created product.",
-            "x-last-modified": 1615765897130
+            "description": "The created product"
           }
         },
         "operationId": "CreateProduct",
         "summary": "Create a new product"
-      },
-      "x-last-modified": 1615756018282
+      }
     },
     "/products/{id}": {
-      "summary": "Products",
-      "description": "Products operations",
+      "summary": "Product",
+      "description": "Product operations",
       "put": {
         "tags": [],
         "responses": {
@@ -116,8 +109,7 @@
                 }
               }
             },
-            "description": "",
-            "x-last-modified": 1615765992339
+            "description": ""
           }
         },
         "operationId": "UpdateProduct",
@@ -145,8 +137,7 @@
             },
             "required": true,
             "deprecated": false,
-            "description": "Product's unique identifier",
-            "x-last-modified": 1615765959947
+            "description": "Product's unique identifier"
           }
         ]
       },
@@ -166,16 +157,14 @@
             },
             "required": true,
             "deprecated": false,
-            "description": "The product's unique identifier",
-            "x-last-modified": 1615757316314
+            "description": "The product's unique identifier"
           }
         ],
         "responses": {
           "204": {
-            "description": "Operation succeeded.",
+            "description": "Operation succeeded",
             "content": {},
-            "headers": {},
-            "x-last-modified": 1615757383701
+            "headers": {}
           }
         }
       }
@@ -184,7 +173,7 @@
   "components": {
     "schemas": {
       "Product": {
-        "description": "A product to sell.",
+        "description": "A product to sell",
         "type": "object",
         "properties": {
           "id": {
@@ -209,8 +198,7 @@
           "category": "Watersports",
           "description": "A boat for one person",
           "price": 16
-        },
-        "x-last-modified": 1615756249961
+        }
       }
     },
     "securitySchemes": {},
