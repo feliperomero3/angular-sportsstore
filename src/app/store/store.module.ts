@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ProductModule } from '../products/product.module';
 import { CartModule } from '../cart/cart.module';
 import { StoreComponent } from './store.component';
 import { CounterDirective } from './counter.directive';
 import { CheckoutComponent } from './checkout.component';
 import { SharedModule } from '../shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [StoreComponent, CounterDirective, CheckoutComponent],
@@ -17,7 +17,7 @@ import { SharedModule } from '../shared/shared.module';
     BrowserModule,
     FormsModule,
     RouterModule,
-    ProductModule,
+    HttpClientModule,
     CartModule,
     SharedModule
   ],
