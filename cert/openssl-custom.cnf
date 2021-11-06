@@ -4,6 +4,7 @@ prompt = no
 default_md = sha512
 x509_extensions = v3_req
 distinguished_name = dn
+req_extensions = req_ext
 
 [dn]
 C = MX
@@ -26,5 +27,5 @@ DNS.5 = HP15-bs015la
 IP.1 = 127.0.0.1
 
 [req_ext]
-keyUsage=digitalSignature
+keyUsage=digitalSignature, keyEncipherment
 extendedKeyUsage=serverAuth
