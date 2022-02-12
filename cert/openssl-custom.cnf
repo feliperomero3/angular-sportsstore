@@ -17,6 +17,8 @@ CN = localhost
 
 [v3_req]
 subjectAltName = @alt_names
+keyUsage = digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
 
 [alt_names]
 DNS.1 = *.localhost
