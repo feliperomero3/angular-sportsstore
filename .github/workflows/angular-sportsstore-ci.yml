@@ -25,7 +25,10 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - run: npm run test
-      - run: sudo apt-get update && sudo apt-get install google-chrome-stable
+      - run: sudo apt-get update
+      - run: curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o google-chrome-stable_current_amd64.deb
+      - run: sudo dpkg -i google-chrome-stable_current_amd64.deb
+      - run: sudo apt-get install -f
       - run: cd cert && ./generate.sh
       - run: npm run e2e-ci
       - name: Publish build artifacts
