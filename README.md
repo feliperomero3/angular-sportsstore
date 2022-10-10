@@ -36,10 +36,11 @@ This project was generated with Angular CLI version 9.0.3.
 
 This project has the following npm scripts:
 
-- `npm run start` starts the app locally on default port (4200).
-- `npm run test` runs the unit tests.
-- `npm run e2e` runs end to end tests (you need to run `npm run json` first).
-- `npm run e2e-ci` runs `start-server-and-test` to start an instance of `json-server` and then runs the end to end tests (this script is used on the CI server).
+- `start` starts the app locally on default port (4200).
+- `test` runs the unit tests.
+- `json` start an instance of `json-server`.
+- `e2e` runs end to end tests (you need to run `npm run json` first).
+- `e2e-ci` runs `start-server-and-test` to start an instance of `json-server` and then runs the end to end tests (this script is used on the CI server).
 
 ## Tests
 
